@@ -1,18 +1,8 @@
-/****************************************************************************
- *                                                                          *
- * File    : main.c                                                         *
- *                                                                          *
- * Purpose : Console mode (command line) program.                           *
- *                                                                          *
- * History : Date      Reason                                               *
- *           00/00/00  Created                                              *
- *                                                                          *
- ****************************************************************************/
 
 #include "menu.h"
 #include <stdio.h>
 #include <time.h>
-#include "main_h.h"
+#include "common.h"
 
 // get current hour 0-23
 static int getCurrentHour(void)
@@ -63,14 +53,14 @@ int showDateMenu(void)
 int showTimeSlotMenu(int isToday)
 {
     const char *timeList[] = {
-        "9:00 am ¨C 9:50 am",
-        "10:00 am ¨C 10:50 am",
-        "11:00 am ¨C 11:50 am",
-        "12:00 pm ¨C 12:50 pm",
-        "13:00 pm ¨C 13:50 pm",
-        "14:00 pm ¨C 14:50 pm",
-        "15:00 pm ¨C 15:50 pm",
-        "16:00 pm ¨C 16:50 pm"
+        "9:00 am ï¿½C 9:50 am",
+        "10:00 am ï¿½C 10:50 am",
+        "11:00 am ï¿½C 11:50 am",
+        "12:00 pm ï¿½C 12:50 pm",
+        "13:00 pm ï¿½C 13:50 pm",
+        "14:00 pm ï¿½C 14:50 pm",
+        "15:00 pm ï¿½C 15:50 pm",
+        "16:00 pm ï¿½C 16:50 pm"
     };
 
     int curH = getCurrentHour();

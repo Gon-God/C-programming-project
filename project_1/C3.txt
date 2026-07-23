@@ -5,7 +5,7 @@ Date:2026.07.20 Slot:2 Status:0 User:
 Date:2026.07.20 Slot:3 Status:0 User:
 Date:2026.07.20 Slot:4 Status:0 User:
 Date:2026.07.20 Slot:5 Status:0 User:
-Date:2026.07.20 Slot:6 Status:0 User:
+Date:2026.07.20 Slot:6 Status:1 User:alice
 Date:2026.07.20 Slot:7 Status:0 User:
 Date:2026.07.20 Slot:8 Status:0 User:
 Date:2026.07.21 Slot:0 Status:0 User:

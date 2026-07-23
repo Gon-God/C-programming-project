@@ -1,11 +1,13 @@
 #include "room_booking.h"
 
-// 全局日期列表在此定义（仅一处）
+// date setting
 char g_dateList[DATE_TOTAL][DATE_STR_LEN] = {
     "2026.07.20",
     "2026.07.21",
     "2026.07.22"
 };
+
+//to check if the room is free?
 
 int isRoomFree(const char* roomId, int dateIdx, int slotIdx) {
     if (!roomId || dateIdx < 0 || dateIdx >= DATE_TOTAL || slotIdx < 0 || slotIdx >= SLOT_TOTAL)
@@ -18,7 +20,7 @@ int isRoomFree(const char* roomId, int dateIdx, int slotIdx) {
 int bookSlot(const char* roomId, int dateIdx, int slotIdx, const char* userName) {
     if (!roomId || !userName || dateIdx < 0 || dateIdx >= DATE_TOTAL || slotIdx < 0 || slotIdx >= SLOT_TOTAL)
         return 0;
-    // 先检查是否空闲
+    // cheak the free
     if (!isRoomFree(roomId, dateIdx, slotIdx))
         return 0;
     RoomAllStatus status;
@@ -33,6 +35,8 @@ int bookSlot(const char* roomId, int dateIdx, int slotIdx, const char* userName)
     return 1;
 }
 
+//to find some room to user
+
 int findAvailableRoom(Classroom rooms[], int roomCount, int dateIdx, int slotIdx, int minCapacity) {
     int best = -1;
     for (int i = 0; i < roomCount; i++) {
@@ -44,6 +48,8 @@ int findAvailableRoom(Classroom rooms[], int roomCount, int dateIdx, int slotIdx
     }
     return best;
 }
+
+//let user enter the room size.
 
 int inputRoomSize() {
     int size;
@@ -61,6 +67,9 @@ int inputRoomSize() {
     return size;
 }
 
+
+//to show if there is available book for user
+
 void showBookingResult(const char* roomId, int success) {
     if (success) {
         printf("Classroom %s is available now, you can book it.\n", roomId);
@@ -68,6 +77,8 @@ void showBookingResult(const char* roomId, int success) {
         printf("No available room!\n");
     }
 }
+
+//to comfirm the booking
 
 int askContinue() {
     char reply;
@@ -83,6 +94,8 @@ int askContinue() {
     } while (1);
 }
 
+
+//the main function of the booking system
 int runBookingProcess(Classroom rooms[], int roomCount, int dateIdx, int slotIdx, char* userName) {
     int minSize = inputRoomSize();
     int idx = findAvailableRoom(rooms, roomCount, dateIdx, slotIdx, minSize);
