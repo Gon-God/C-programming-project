@@ -53,14 +53,14 @@ int showDateMenu(void)
 int showTimeSlotMenu(int isToday)
 {
     const char *timeList[] = {
-        "9:00 am �C 9:50 am",
-        "10:00 am �C 10:50 am",
-        "11:00 am �C 11:50 am",
-        "12:00 pm �C 12:50 pm",
-        "13:00 pm �C 13:50 pm",
-        "14:00 pm �C 14:50 pm",
-        "15:00 pm �C 15:50 pm",
-        "16:00 pm �C 16:50 pm"
+        "9:00 am - 9:50 am",
+        "10:00 am - 10:50 am",
+        "11:00 am - 11:50 am",
+        "12:00 pm - 12:50 pm",
+        "13:00 pm - 13:50 pm",
+        "14:00 pm - 14:50 pm",
+        "15:00 pm - 15:50 pm",
+        "16:00 pm - 16:50 pm"
     };
 
     int curH = getCurrentHour();

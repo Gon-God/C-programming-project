@@ -47,7 +47,7 @@ int loginSystem(char *account) {
     
     for (i = 0; i <= 2; i++) {
         j = 0;
-        printf("Login in£º\n");
+        printf("Login in: \n");
         // input account and password by users 
         printf("Please input your account: ");
         scanf("%99s", user_account);
