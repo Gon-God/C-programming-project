@@ -2,7 +2,7 @@
 #include "menu.h"
 #include <stdio.h>
 #include <time.h>
-#include "main_h.h"
+#include "common.h"
 
 // get current hour 0-23
 static int getCurrentHour(void)
@@ -53,14 +53,14 @@ int showDateMenu(void)
 int showTimeSlotMenu(int isToday)
 {
     const char *timeList[] = {
-        "9:00 am 每 9:50 am",
-        "10:00 am 每 10:50 am",
-        "11:00 am 每 11:50 am",
-        "12:00 pm 每 12:50 pm",
-        "13:00 pm 每 13:50 pm",
-        "14:00 pm 每 14:50 pm",
-        "15:00 pm 每 15:50 pm",
-        "16:00 pm 每 16:50 pm"
+        "9:00 am 穡C 9:50 am",
+        "10:00 am 穡C 10:50 am",
+        "11:00 am 穡C 11:50 am",
+        "12:00 pm 穡C 12:50 pm",
+        "13:00 pm 穡C 13:50 pm",
+        "14:00 pm 穡C 14:50 pm",
+        "15:00 pm 穡C 15:50 pm",
+        "16:00 pm 穡C 16:50 pm"
     };
 
     int curH = getCurrentHour();
