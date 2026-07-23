@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "main_h.h"
+#include "common.h"
 
+
+//the main login system
 int loginSystem(char *account) {
     FILE *fp;
     char account_stored[100], password_stored[100], user_account[100], user_password[100];

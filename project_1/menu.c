@@ -1,13 +1,3 @@
-/****************************************************************************
- *                                                                          *
- * File    : main.c                                                         *
- *                                                                          *
- * Purpose : Console mode (command line) program.                           *
- *                                                                          *
- * History : Date      Reason                                               *
- *           00/00/00  Created                                              *
- *                                                                          *
- ****************************************************************************/
 
 #include "menu.h"
 #include <stdio.h>

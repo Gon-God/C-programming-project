@@ -6,25 +6,28 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-/* �������� */
+//base setting for the system
+
 #define MAX_ROOM         50
 #define DATE_TOTAL       3
 #define SLOT_TOTAL       9
 #define USER_NAME_LEN    21
 #define DATE_STR_LEN     20
-#define ROOM_ID_LEN      10      // ͳһ����ID����
+#define ROOM_ID_LEN      10      
 #define FILE_NAME_BUF    64
 #define LINE_BUF         256
 
-/* ���Ͷ��� */
+//the struct of classroom
 typedef struct {
     char roomId[ROOM_ID_LEN];
     int capacity;
-} Classroom;           // �ϲ� ClassroomBase �� Classroom
+} Classroom;           
 
+
+//the room now
 typedef struct {
     char dateStr[DATE_STR_LEN];
-    int isBooked;       // 0 ���У�1 ��Ԥ��
+    int isBooked;      
     char bookUser[USER_NAME_LEN];
 } RoomSlotStatus;
 
@@ -33,20 +36,17 @@ typedef struct {
     RoomSlotStatus dateStatus[DATE_TOTAL][SLOT_TOTAL];
 } RoomAllStatus;
 
-/* ȫ�������б�����ĳ�� .c �ж��壩 */
 extern char g_dateList[DATE_TOTAL][DATE_STR_LEN];
 
 
 void trimLine(char* str);
 void getRoomFileName(const char* roomId, char* fileNameOut);
 
-/* ---------- I/O ���� ---------- */
 int loadClassroomBase(Classroom roomArr[]);
 void initAllRoomFiles(Classroom roomArr[], int roomCount, char dateList[DATE_TOTAL][DATE_STR_LEN]);
 void loadRoomStatus(const char* roomId, RoomAllStatus* statusOut, char dateList[DATE_TOTAL][DATE_STR_LEN]);
 void saveRoomStatus(const RoomAllStatus* statusIn);
 
-/* ---------- ҵ���� ---------- */
 int isRoomFree(const char* roomId, int dateIdx, int slotIdx);
 int bookSlot(const char* roomId, int dateIdx, int slotIdx, const char* userName);
 int findAvailableRoom(Classroom rooms[], int roomCount, int dateIdx, int slotIdx, int minCapacity);
@@ -56,3 +56,5 @@ int askContinue();
 
 ;
 #endif
+
+//for two Classroom.c files.

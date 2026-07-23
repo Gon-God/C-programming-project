@@ -1,5 +1,7 @@
 #include "room_booking.h"
 
+
+//to open the file.
 int loadClassroomBase(Classroom roomArr[]) {
     if (!roomArr) {
         printf("Error: room array pointer is NULL!\n");
@@ -26,6 +28,8 @@ int loadClassroomBase(Classroom roomArr[]) {
     fclose(fp);
     return count;
 }
+
+//to create the room txt
 
 void initSingleRoomFile(const char* roomId, char dateList[DATE_TOTAL][DATE_STR_LEN]) {
     char fileName[FILE_NAME_BUF];
@@ -54,6 +58,8 @@ void initAllRoomFiles(Classroom roomArr[], int roomCount, char dateList[DATE_TOT
     }
 }
 
+//to load the room status
+
 void loadRoomStatus(const char* roomId, RoomAllStatus* statusOut, char dateList[DATE_TOTAL][DATE_STR_LEN]) {
     if (!roomId || !statusOut || !dateList) return;
     memset(statusOut, 0, sizeof(RoomAllStatus));
@@ -78,8 +84,8 @@ void loadRoomStatus(const char* roomId, RoomAllStatus* statusOut, char dateList[
         trimLine(line);
         if (strlen(line) == 0) continue;
         int ret = sscanf(line, "Date:%s Slot:%d Status:%d User:%s", dateBuf, &slot, &stat, userBuf);
-        if (ret < 3) continue; // 至少读到 Status
-        // 查找日期索引
+        if (ret < 3) continue; 
+        // find the date index
         int dIdx = -1;
         for (int d = 0; d < DATE_TOTAL; d++) {
             if (strcmp(dateBuf, dateList[d]) == 0) {
@@ -90,7 +96,7 @@ void loadRoomStatus(const char* roomId, RoomAllStatus* statusOut, char dateList[
         if (dIdx == -1 || slot < 0 || slot >= SLOT_TOTAL) continue;
         strncpy(statusOut->dateStatus[dIdx][slot].dateStr, dateBuf, DATE_STR_LEN-1);
         statusOut->dateStatus[dIdx][slot].isBooked = stat;
-        if (ret == 4) { // 有 User 字段
+        if (ret == 4) { // text the user
             strncpy(statusOut->dateStatus[dIdx][slot].bookUser, userBuf, USER_NAME_LEN-1);
         } else {
             statusOut->dateStatus[dIdx][slot].bookUser[0] = '\0';
@@ -98,6 +104,8 @@ void loadRoomStatus(const char* roomId, RoomAllStatus* statusOut, char dateList[
     }
     fclose(fp);
 }
+
+//to save the room status after the booking
 
 void saveRoomStatus(const RoomAllStatus* statusIn) {
     if (!statusIn) return;
@@ -119,7 +127,6 @@ void saveRoomStatus(const RoomAllStatus* statusIn) {
     fclose(fp);
 }
 
-// 删除可能存在的 static 或 inline
 void trimLine(char* str) {
     if (str == NULL) return;
     size_t len = strlen(str);
@@ -129,6 +136,7 @@ void trimLine(char* str) {
     }
 }
 
+//to make it usable to "Classroom_size.c"
 
 void getRoomFileName(const char* roomId, char* fileNameOut) {
     snprintf(fileNameOut, FILE_NAME_BUF, "%s.txt", roomId);
