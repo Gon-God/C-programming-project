@@ -1,0 +1,1 @@
+﻿int loginSystem(char *account);
