@@ -1,6 +1,6 @@
 # C-programming-project
 
-### The projecct requirement folder is the requirement of the project
+### The requirement folder shows the requirement of the project
 
 This project requires developing a UIC classroom booking system in C. 
 
