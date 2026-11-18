@@ -12,6 +12,6 @@ The system must use structures to manage classroom numbers, time slots, booking 
 
 Then save the booking information for the most recent three days in a text file corresponding to each classroom. 
 
-### The final version is uploaded in the folder.
+### The final version is uploaded in the new folder.
 
 Click the main file to use it.
